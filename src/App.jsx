@@ -4,7 +4,7 @@ function App() {
   let faceio;
 
   useEffect(() => {
-    faceio = new faceIO("Here goes your publicID");
+    faceio = new faceIO("fioa00e");
   }, []);
 
   const handleSignIn = async () => {
@@ -29,22 +29,21 @@ function App() {
   const handleLogIn = async () => {
     try {
       let response = await faceio.authenticate({
-        locale: "auto"
+        locale: "auto",
       });
 
       console.log(` Unique Facial ID: ${response.facialId}
       Payload: ${response.payload}`);
-
     } catch (error) {
       console.log(error);
     }
-  }
+  };
 
   return (
     <section>
       <h1>Face Authentication by FaceIO</h1>
       <button onClick={handleSignIn}>Sign-in</button>
-      <button onClick={handleLogIn} >Log-in</button>
+      <button onClick={handleLogIn}>Log-in</button>
     </section>
   );
 }
